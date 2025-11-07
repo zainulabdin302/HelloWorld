@@ -26,4 +26,15 @@ jobs:
     - name: Run Hello World App
       run: python app.py
 
+    - name: Create artifact
+      run: |
+        mkdir build
+        cp app.py build/
+        zip -r hello-world-artifact.zip build/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello-world-artifact
+        path: hello-world-artifact.zip
 
