@@ -22,6 +22,10 @@ jobs:
     - name: Install dependencies
       run: |
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install pytest
+
+    - name: Run tests using pytest
+      run: pytest -q
 
     - name: Run Hello World App
       run: python app.py
@@ -37,4 +41,3 @@ jobs:
       with:
         name: hello-world-artifact
         path: hello-world-artifact.zip
-
